@@ -1,0 +1,527 @@
+﻿@section Styles
+{
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="~/lib/bs-stepper/css/bs-stepper.min.css">
+    <link rel="stylesheet" href="~/lib/select2/css/select2.min.css">
+    <link rel="stylesheet" href="~/lib/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+}
+
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-sm-12 text-center">
+                <h1 class="m-0">Builder Page</h1>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<div class="content">
+<div class="container flex-grow-1 flex-shrink-0 py-2">
+<div class="mb-2 p-4 bg-white shadow-sm">
+@* <h3>Multi-stepper</h3> *@
+      
+<div id="stepper1" class="bs-stepper">
+<div class="bs-stepper-header" role="tablist">
+                    
+  @* User Info Tab Start *@
+  <div class="step" data-target="#user-info">
+    <button type="button" class="step-trigger" role="tab">
+      <span class="bs-stepper-circle"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+      @* <span class="bs-stepper-label">Info</span> *@
+    </button>
+  </div>               
+  @* User Info Tab End *@
+      
+  @* Experience Tab Start *@            
+  <div class="bs-stepper-line"></div>              
+  <div class="step" data-target="#experience-list">
+    <button type="button" class="step-trigger" role="tab">
+      <span class="bs-stepper-circle"><i class="fa fa-briefcase" aria-hidden="true"></i></span>
+      @* <span class="bs-stepper-label">Experience</span> *@
+    </button>
+  </div>
+  @* Experience Tab End *@
+      
+  @* Projects & Training Tab Start *@
+  <div class="bs-stepper-line"></div>            
+  <div class="step" data-target="#project-list">
+    <button type="button" class="step-trigger" role="tab">
+      <span class="bs-stepper-circle"><i class="fa fa-industry" aria-hidden="true"></i></span>
+      @* <span class="bs-stepper-label">Projects</span> *@
+    </button>
+  </div>
+  @* Projects & Training Tab End *@
+      
+  @* Education & Reference Tab Start *@              
+  <div class="bs-stepper-line"></div>                
+  <div class="step" data-target="#education-list">
+    <button type="button" class="step-trigger" role="tab">
+      <span class="bs-stepper-circle"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
+      @* <span class="bs-stepper-label">Education</span> *@
+    </button>
+  </div>
+  @* Education & Reference Tab End *@
+  
+  
+  @* Generate Tab Start *@
+  <div class="bs-stepper-line"></div>
+  <div class="step" data-target="#generate">
+    <button type="button" class="step-trigger" role="tab">
+      <span class="bs-stepper-circle"><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
+      @* <span class="bs-stepper-label">Generate</span> *@
+    </button>
+  </div>
+  @* Generate Tab End *@
+</div>
+      
+<div class="bs-stepper-content">
+<form asp-controller="Builder" asp-action="GetCv" method="get" >
+                        
+@* User Info Page Start *@
+<div id="user-info" role="tabpanel" class="bs-stepper-pane">
+  <div class="card card card-outline card-primary">
+    <div class="card-header">
+      <h4 class="card-title text-bold">Personal Information</h4>
+    </div>
+    <div class="card-body">
+      <div class="form-group form-row">
+        <div class="col-12 col-sm-6">
+          <input class="form-control" type="text" placeholder="Full Name"/>
+        </div>
+        <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+          <input class="form-control" type="email" placeholder="Email Address"/>
+        </div>
+      </div>
+            
+      <div class="form-group form-row">
+        <div class="col-12 col-sm-6">
+          <input class="form-control" type="text" placeholder="LinkedIn"/>
+        </div>
+        <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+          <input class="form-control" type="text" placeholder="Skype username"/>
+        </div>
+      </div>
+            
+      <div class="form-group form-row">
+        <div class="col-12 col-sm-6">
+          <input class="form-control" type="number" placeholder="Contact Number"/>
+        </div>
+        <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+          <input class="form-control" type="text" placeholder="Residential Address"/>
+        </div>
+      </div>
+            
+      <div class="form-group">
+        <select style="width: 100%" class="form-control skillSelector select2-multiple select2-blue" multiple="multiple" data-placeholder="Select a Skill">
+          <option>.Net Core, Web API, NodeJs</option>
+          <option>Asp.net, .Net MVC</option>
+          <option>C#, VB.Net</option>
+          <option>LINQ, SQL, Entity Framework and MongoDB</option>
+          <option>Angular 6, Angular 1 and MEAN Stack</option>
+          <option>Javascript, JQuery and Ajax</option>
+          <option>Bootstrap CSS, HTML</option>
+          <option>Crystal and RDLC Report</option>
+          <option>Design Pattern & Principles, OOP Software Design
+            & Architecture</option>
+          <option>TFS, GIT, V. SourceSafe, Trello, Agile, SCRUM</option>
+        </select>
+      </div>
+                              
+      <div class="form-group">
+        <textarea class="form-control" rows="3" placeholder="Professional Summary"></textarea>
+      </div>
+    </div>
+  </div>
+                          
+            
+            
+  <a class="btn btn-primary" onclick="stepper.next()">Next</a>
+            
+</div>
+@* User Info Page End *@
+                        
+@* Experience Page Start *@
+<div id="experience-list" role="tabpanel" class="bs-stepper-pane">
+  <div id="experience">
+    <div class="card card card-outline card-primary">
+      <div class="card-header">
+        <h4 class="card-title text-bold" >Experience 1</h4>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="Company Info"/>
+        </div>
+        <div class="form-group form-row">
+          <div class="col-12 col-sm-6">
+            <input class="form-control" type="text" placeholder="Your Position"/>
+          </div>
+          <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+            <input class="form-control" type="date" placeholder="Joining date"/>
+          </div>
+        </div>
+        <div class="card card-outline card-success">
+          <div class="card-header">
+            <h5 class="card-title text-black-50" >Responsibility</h5>
+            <div class="card-tools">
+              <button type="button" class="btn btn-sm btn-danger add-responsibility"><i class="fas fa-plus"></i></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <input class="form-control" type="text" placeholder="Responsibility"/>
+            </div>
+          </div>
+        </div>
+        @* <a class="btn btn-primary float-right add-responsibility">Add</a> *@
+      </div>
+    </div>
+  </div>
+                          
+  <a id="add-experience" class="btn btn-outline-success float-right">Add Experience</a>
+  <a class="btn btn-primary" onclick="stepper.previous()">Previous</a>
+  <a class="btn btn-primary" onclick="stepper.next()">Next</a>
+                          
+</div>
+@* Experience Page End *@
+                        
+@* Projects & Training Page Start *@
+<div id="project-list" role="tabpanel" class="bs-stepper-pane">
+                          
+  <div class="card card-outline card-primary">
+    <div class="card-header">
+      <h4 class="card-title text-bold">Industrial / Personal Application Projects</h4>
+      <div class="card-tools">
+        <button id="add-project" type="button" class="btn btn-sm btn-danger"><i class="fas fa-plus"></i></button>
+      </div>
+    </div>
+    <div id="project" class="card-body">
+      <div class="card card-outline card-success">
+        <div class="card-body">
+          <div class="form-group form-row">
+            <div class="col-12 col-sm-6">
+              <input class="form-control" type="text" placeholder="Company Name / Persona"/>
+            </div>
+            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+              <input class="form-control" type="text" placeholder="Application Project"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" rows="3" placeholder="Description"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-outline card-primary">
+    <div class="card-header">
+      <h4 class="card-title text-bold">Professional Training</h4>
+      <div class="card-tools">
+        <button id="add-training" type="button" class="btn btn-sm btn-danger"><i class="fas fa-plus"></i></button>
+      </div>
+    </div>
+    <div id="training" class="card-body">
+      <div class="form-group">
+        <input class="form-control" type="text" placeholder="Training"/>
+      </div>
+    </div>
+  </div>
+  <a class="btn btn-primary" onclick="stepper.previous()">Previous</a>
+  <a class="btn btn-primary" onclick="stepper.next()">Next</a>
+</div>
+@* Projects & Training Page End *@
+                        
+@* Educations Page Start *@
+<div id="education-list" role="tabpanel" class="bs-stepper-pane">
+                        
+  <div class="card card-outline card-primary">
+    <div class="card-header">
+      <h4 class="card-title text-bold">Educational qualifications</h4>
+      <div class="card-tools">
+        <button id="add-education" type="button" class="btn btn-sm btn-danger"><i class="fas fa-plus"></i></button>
+      </div>
+    </div>
+    <div id="qualifications" class="card-body">
+      <div class="card card-outline card-success">
+        <div class="card-body">
+          <div class="form-group">
+            <input class="form-control" type="text" placeholder="University / Institute"/>
+          </div>
+          <div class="form-group form-row">
+            <div class="col-12 col-sm-4">
+              <input class="form-control" type="text" placeholder="Level / Degree"/>
+            </div>
+            <div class="col-12 col-sm-4 mt-4 mt-sm-0">
+              <input class="form-control" type="text" placeholder="Grade"/>
+            </div>
+            <div class="col-12 col-sm-4 mt-4 mt-sm-0">
+              <input class="form-control" type="date"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card card-outline card-primary">
+    <div class="card-header">
+      <h4 class="card-title text-bold">References</h4>
+      <div class="card-tools">
+        <button id="add-reference" type="button" class="btn btn-sm btn-danger"><i class="fas fa-plus"></i></button>
+      </div>
+    </div>
+    <div id="reference" class="card-body">
+      <div class="card card-outline card-success">
+        <div class="card-body">
+          <div class="form-group form-row">
+            <div class="col-12 col-sm-4">
+              <input class="form-control" type="text" placeholder="Name"/>
+            </div>
+            <div class="col-12 col-sm-4 mt-4 mt-sm-0">
+              <input class="form-control" type="text" placeholder="Designation"/>
+            </div>
+            <div class="col-12 col-sm-4 mt-4 mt-sm-0">
+              <input class="form-control" type="text" placeholder="Company"/>
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <div class="col-12 col-sm-6">
+              <input class="form-control" type="number" placeholder="Contact Number"/>
+            </div>
+            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+              <input class="form-control" type="email" placeholder="Email"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" placeholder="Address"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="btn btn-primary" onclick="stepper.previous()">Previous</a>
+  <a class="btn btn-primary" onclick="stepper.next()">Next</a>
+</div>
+@* Educations Page End *@
+
+@* Generate Page Start *@
+<div id="generate" role="tabpanel" class="bs-stepper-pane text-center">
+  <div class="card card-outline card-success">
+      <div class="card-body">
+        <h1 class="text-bold">Generate Pdf</h1>
+      </div>
+    </div>
+  <a class="btn btn-primary mt-5" onclick="stepper.previous()">Previous</a>
+  <button type="submit" class="btn btn-primary mt-5">Submit</button>
+</div>
+@* Generate Page End *@
+            
+            
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+@section Scripts
+{
+
+  <!-- BS-Stepper -->
+    <script src="~/lib/bs-stepper/js/bs-stepper.min.js"></script>
+    <script src="~/lib/select2/js/select2.full.min.js"></script>
+
+  <script> 
+      // BS-Stepper Init
+      document.addEventListener('DOMContentLoaded', function () {
+          window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+      })
+      
+      $(document).ready(function() {
+        
+        $('.skillSelector').select2({
+        allowClear: true,
+        theme: 'bootstrap4'
+        });
+        
+        //Work Experience Script Start
+        
+        //--Add new experience Start--//
+        let experienceCount = 1;
+        
+        $('#add-experience').click(function () {
+          
+          // Create a new input element for experience        
+          let experienceHtml = `
+            <div class="card card-outline card-primary">
+              <div class="card-header">
+                    <h4 class="card-title text-bold" >Experience ${experienceCount + 1}</h4>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <input class="form-control" type="text" placeholder="Company Info"/>
+                </div>
+                <div class="form-group form-row">
+                  <div class="col-12 col-sm-6">
+                    <input class="form-control" type="text" placeholder="Your Position"/>
+                  </div>
+                  <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                    <input class="form-control" type="date" placeholder="Joining date"/>
+                  </div>
+                </div>
+                <div class="card card card-outline card-success">
+                  <div class="card-header">
+                    <h5 class="card-title" >Responsibility</h5>
+                    <div class="card-tools">
+                      <button type="button" class="btn btn-sm btn-danger add-responsibility"><i class="fas fa-plus"></i></button>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="form-group">
+                      <input class="form-control" type="text" placeholder="Responsibility"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+          
+            //append the new input element
+            $('#experience').append(experienceHtml);
+            experienceCount++;
+        });
+        //--Add new experience End--//
+        
+        //--Add new responsibility Start--//
+        $(document).on("click", ".add-responsibility", function() {
+          // Create a new input element for responsibility
+          let newResponsibilityInput = `<div class="form-group">
+                                         <input class="form-control" type="text" placeholder="Responsibility"/>
+                                       </div>`;
+      
+          // Find the closest card body and append the new input element
+          $(this).closest('.card-body').find(".card-outline .card-body").append(newResponsibilityInput);
+        });
+        //--Add new responsibility End--//
+        
+        //Work Experience Script End
+        
+        // Project & Training Script Start
+        
+        //--Add New Project Start--//
+        $('#add-project').click(function () {
+                  
+            // Create a new input element for project        
+            let projectHtml = `<div class="card card-outline card-success">
+                                   <div class="card-body">
+                                     <div class="form-group form-row">
+                                       <div class="col-12 col-sm-6">
+                                         <input class="form-control" type="text" placeholder="Company Name / Persona"/>
+                                       </div>
+                                       <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                         <input class="form-control" type="text" placeholder="Application Project"/>
+                                       </div>
+                                     </div>
+                                     <div class="form-group">
+                                       <textarea class="form-control" rows="3" placeholder="Description"></textarea>
+                                     </div>
+                                   </div>
+                                 </div>`;
+            
+              //append the new input element
+              $('#project').append(projectHtml);
+          });
+          //--Add New Project End--//
+          
+          //--Add New Training Start--/
+          $('#add-training').click(function () {
+                            
+            // Create a new input element for training        
+            let trainingHtml = `<div class="form-group">
+                                  <input class="form-control" type="text" placeholder="Training"/>
+                                </div>`;
+            
+              //append the new input element
+              $('#training').append(trainingHtml);
+          });
+          //--Add New Training End--/
+        
+        // Project & Training Script End
+        
+        // Education & References Script Start
+        
+        //--Add New Qualifications Start--//
+          $('#add-education').click(function () {
+                    
+              // Create a new input element for project        
+              let qualificationHtml = `<div class="card card-outline card-success">
+                                         <div class="card-body">
+                                           <div class="form-group">
+                                             <input class="form-control" type="text" placeholder="University / Institute"/>
+                                           </div>
+                                           <div class="form-group form-row">
+                                             <div class="col-12 col-sm-4">
+                                               <input class="form-control" type="text" placeholder="Level / Degree"/>
+                                             </div>
+                                             <div class="col-12 col-sm-4 mt-4 mt-sm-0">
+                                               <input class="form-control" type="text" placeholder="Grade"/>
+                                             </div>
+                                             <div class="col-12 col-sm-4 mt-4 mt-sm-0">
+                                               <input class="form-control" type="date"/>
+                                             </div>
+                                           </div>
+                                         </div>
+                                       </div>`;
+              
+                //append the new input element
+                $('#qualifications').append(qualificationHtml);
+            });
+            //--Add New Qualifications End--//
+            
+         //--Add New Reference Start--//
+          $('#add-reference').click(function () {
+                    
+              // Create a new input element for project        
+              let referenceHtml = `<div class="card card-outline card-success">
+                                     <div class="card-body">
+                                       <div class="form-group form-row">
+                                         <div class="col-12 col-sm-4">
+                                           <input class="form-control" type="text" placeholder="Name"/>
+                                         </div>
+                                         <div class="col-12 col-sm-4 mt-4 mt-sm-0">
+                                           <input class="form-control" type="text" placeholder="Designation"/>
+                                         </div>
+                                         <div class="col-12 col-sm-4 mt-4 mt-sm-0">
+                                           <input class="form-control" type="text" placeholder="Company"/>
+                                         </div>
+                                       </div>
+                                       <div class="form-group form-row">
+                                         <div class="col-12 col-sm-6">
+                                           <input class="form-control" type="number" placeholder="Contact Number"/>
+                                         </div>
+                                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                           <input class="form-control" type="email" placeholder="Email"/>
+                                         </div>
+                                       </div>
+                                       <div class="form-group">
+                                         <input class="form-control" type="text" placeholder="Address"/>
+                                       </div>
+                                     </div>
+                                   </div>`;
+              
+                //append the new input element
+                $('#reference').append(referenceHtml);
+            });
+            //--Add New Reference End--//
+                      
+        
+        // Education & References Script End
+                          
+      });
+            
+    </script>
+}
